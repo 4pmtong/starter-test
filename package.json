@@ -1,0 +1,68 @@
+{
+  "name": "starter-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --colors --config config/webpack/webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --colors --config config/webpack/webpack.config.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4pmtong/starter-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4pmtong/starter-test/issues"
+  },
+  "homepage": "https://github.com/4pmtong/starter-test#readme",
+  "dependencies": {
+    "antd": "^3.23.2",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "autoprefixer": "^9.6.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^5.2.1",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.3.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^2.7.3",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.0.0",
+    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "ts-import-plugin": "^1.6.1",
+    "ts-loader": "^6.0.4",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.6.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "lib": ["es6", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "rootDir": "src",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5",
+    "baseUrl": "~",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}
