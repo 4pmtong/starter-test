@@ -20,6 +20,7 @@
   "homepage": "https://github.com/4pmtong/starter-test#readme",
   "dependencies": {
     "antd": "^3.23.2",
+    "cryptiles": "^4.1.2",
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
