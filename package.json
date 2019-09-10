@@ -21,6 +21,7 @@
   "dependencies": {
     "antd": "^3.23.2",
     "cryptiles": "^4.1.2",
+    "hoek": "^4.2.1",
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
