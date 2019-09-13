@@ -1,19 +1,16 @@
-import React from 'react';
+import * as React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Layouts from '@/layouts/index';
 
-// import Button from './components/Button';
-import { Button } from 'antd';
-
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
+class App extends React.PureComponent {
+  public render() {
+    console.warn('Render App');
     return (
-      <div>
-        container,
-        <Button type="primary">Button</Button>
-      </div>
+      <Router>
+        <Layouts />
+      </Router>
     );
   }
 }
+
+export default App;

@@ -1,22 +1,36 @@
-
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-  "rules":{
-    "no-console":false,
-    "no-debugger":false,
-    "indent":[true, "spaces", 2],
+  "rules": {
+    "no-console": false,
+    "no-debugger": false,
+    "indent": [true, "spaces"],
     "no-consecutive-blank-lines": [
       true,
       2
     ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock"
+    ],
+    // "no-any": true,
+    // "interface-name": [true, "never-prefix"],
     "jsx-no-lambda": false,
     "object-literal-sort-keys": false,
-    "ordered-imports": true
+    "ordered-imports": false,
+    "max-classes-per-file": [true, 2]
+    // "no-implicit-dependencies":["optional",["src"]],
+    // "no-submodule-imports":[true,"src"]
   },
   "linterOptions": {
-    "exclude": [
-      "config/**/*.js",
-      "node_modules/**/*.ts"
-    ]
+    "exclude": ["config/**/*.js", "node_modules/**/*.ts"]
   }
 }

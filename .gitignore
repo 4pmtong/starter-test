@@ -1,2 +1,12 @@
+.git
+.idea
 .vscode
+.DS_Store
 node_modules
+
+# test
+/coverage
+
+# production
+/build
+/dist

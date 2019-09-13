@@ -1,0 +1,18 @@
+.layout-wrapper{
+  height: 100%;
+  &__inner {
+    height: 100%;
+    &-left {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      &_content {
+        position: absolute;
+        top: 64px;
+        right: 0;
+        left: 0;
+        bottom: 0
+      }
+    }
+  }
+}
