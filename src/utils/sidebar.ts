@@ -2,9 +2,9 @@ import pathToRegexp from 'path-to-regexp';
 import { IRouteMap, IRoutes } from '@/types/index';
 
 /**
- * @description 默认匹配菜单的第一个
- * @param route 路由项
- * @param keys 菜单的key值的列表
+ * @description default first one
+ * @param route
+ * @param keys menu key
  */
 const matchSelectedSidebar = (route: IRoutes, key = '/'): string => {
   if (route.routes && route.routes.length > 0) {
@@ -16,9 +16,9 @@ const matchSelectedSidebar = (route: IRoutes, key = '/'): string => {
 };
 
 /**
- * @description 根据选中的菜单匹配所对应的菜单展开
- * @param selectedKey 选中的菜单项的key
- * @returns 展开的菜单项
+ * @description Expand by selectedKey
+ * @param selectedKey
+ * @returns
  */
 export const matchOpenKeys = (selectedKey: string): string[] => {
   const selectedKeys = selectedKey.split('/');
@@ -33,10 +33,10 @@ export const matchOpenKeys = (selectedKey: string): string[] => {
 };
 
 /**
- * @description 匹配路径（包括动态路径）
- * @param pathname 路径
- * @param breadcrumbMap 所有路由映射
- * @returns 匹配后的路由项
+ * @description match routes
+ * @param pathname
+ * @param breadcrumbMap
+ * @returns
  */
 export const matchParamsPath = (
   pathname: string,
@@ -48,21 +48,16 @@ export const matchParamsPath = (
   return routeMap[`${pathKey}`];
 };
 
-// 获取选中的菜单和展开的菜单项
 export const getMenuSelectedAndOpenKeys = (
   extractFilterRoutes: IRoutes[],
   breadcrumbMap: IRouteMap
 ) => {
-  // 输入的地址
   const pathname = location.pathname;
-  // 选中的菜单
   let selectedKey: string = '';
-  // 展开的菜单项
   let openKeys: string[] = [];
   if (pathname === '/') {
     selectedKey = extractFilterRoutes[0].path;
   } else {
-    // 当前选中的路由
     const selectedRoute = matchParamsPath(pathname, breadcrumbMap);
     if (selectedRoute) {
       selectedKey = selectedRoute.path;
