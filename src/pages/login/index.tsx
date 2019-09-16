@@ -2,7 +2,6 @@ import { Button, Col, Form, Icon, Input } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 import logo from '@/assets/logo.svg';
 import * as React from 'react';
-// import Particles from "react-particles-js";
 import { login } from '@/services/api';
 import { setToken, setStore } from '@/utils/auth';
 import './style.scss';
@@ -18,7 +17,6 @@ class Login extends React.PureComponent<FormComponentProps> {
     validateCodeFeedback: false
   };
 
-  // 提交
   public handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     this.props.form.validateFields(
@@ -60,7 +58,6 @@ class Login extends React.PureComponent<FormComponentProps> {
     );
   };
 
-  // 刷新验证码
   public refresh = () => {
     this.setState({
       validateCode: `getValidateCode?${+new Date()}`
@@ -70,45 +67,31 @@ class Login extends React.PureComponent<FormComponentProps> {
     const { getFieldDecorator } = this.props.form;
     return (
       <div className="login-wrapper">
-        {/* <Particles
-          params={{
-            particles: {
-              color: {
-                value: "#303133"
-              },
-              line_linked: {
-                enable: true,
-                distance: 150,
-                color: "#303133",
-                opacity: 0.4,
-                width: 1
-              }
-            }
-          }}
-          style={{ position: "absolute" }}
-        /> */}
         <div className="login-top">
           <div className="login-top_logo">
             <img src={logo} className="logo" alt="logo" />
           </div>
-          <h3 className="login-top_des">Traffic Analysis</h3>
+          <h3 className="login-top_des">Tidal</h3>
         </div>
         <Form onSubmit={this.handleSubmit} className="login-form">
           <FormItem>
             {getFieldDecorator('userName', {
-              rules: [{ required: true, message: '用户名不能为空' }]
+              rules: [{ required: true, message: 'Username can not be empty' }]
             })(
-              <Input prefix={<Icon type="user" />} placeholder="请输入用户名" />
+              <Input
+                prefix={<Icon type="user" />}
+                placeholder="please enter user name"
+              />
             )}
           </FormItem>
           <FormItem>
             {getFieldDecorator('password', {
-              rules: [{ required: true, message: '密码不能为空' }]
+              rules: [{ required: true, message: 'Password can not be blank' }]
             })(
               <Input
                 prefix={<Icon type="lock" />}
                 type="password"
-                placeholder="请输入密码"
+                placeholder="please enter your password"
               />
             )}
           </FormItem>
@@ -116,8 +99,15 @@ class Login extends React.PureComponent<FormComponentProps> {
             <Col span={17}>
               <FormItem>
                 {getFieldDecorator('validateCode', {
-                  rules: [{ required: true, message: '验证码不能为空' }]
-                })(<Input placeholder="请输入右侧验证码" />)}
+                  rules: [
+                    {
+                      required: true,
+                      message: 'Verification code must be filled'
+                    }
+                  ]
+                })(
+                  <Input placeholder="please enter the verification code on the right" />
+                )}
               </FormItem>
             </Col>
             <Col span={6} offset={1}>
@@ -125,7 +115,7 @@ class Login extends React.PureComponent<FormComponentProps> {
                 onClick={this.refresh}
                 style={{ width: '100%', cursor: 'pointer' }}
                 src={this.state.validateCode}
-                alt="验证码"
+                alt="VerificationCode"
               />
             </Col>
           </FormItem>
@@ -135,10 +125,9 @@ class Login extends React.PureComponent<FormComponentProps> {
               type="primary"
               htmlType="submit"
               className="login-form-button">
-              登 录
+              Login
             </Button>
           </FormItem>
-          <div>账号、密码、验证码，随便填</div>
         </Form>
       </div>
     );

@@ -77,13 +77,8 @@ class Layouts extends React.PureComponent<IProps> {
           renderRoute = <RouteWithSubRoutes {...routeMap} />;
         }
       } else {
-        // 处理根域、login情况
-        if (/^\/login(\/?)$/.test(pathname)) {
-          renderRoute = <Route path="/login" component={login} />;
-        } else {
-          if (pathname === '/') {
-            renderRoute = <Redirect to={firstLink} />;
-          }
+        if (pathname === '/') {
+          renderRoute = <Redirect to={firstLink} />;
         }
       }
     }
@@ -107,7 +102,7 @@ class Layouts extends React.PureComponent<IProps> {
                       render={() => (
                         <Exception
                           title="404"
-                          desc="抱歉，你访问的页面不存在"
+                          desc="Sorry, the page does not exist."
                           showAction={true}
                         />
                       )}
@@ -118,6 +113,7 @@ class Layouts extends React.PureComponent<IProps> {
             </Layout>
           </Layout>
         ) : (
+          // TODO: Login for future
           <Switch>
             <Route path="/login" component={login} />
             <Redirect to="/login" />

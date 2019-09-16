@@ -5,9 +5,9 @@ class SidebarLogo extends React.PureComponent {
   public render() {
     return (
       <div className="sidebar-logo">
-        <a href="/">
+        <a className="sidebar-link" href="/">
           <img src={logo} className="logo" alt="logo" />
-          <h1 className="title">Traffic Analysis</h1>
+          <h1 className="title">Tidal</h1>
         </a>
       </div>
     );

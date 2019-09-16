@@ -7,7 +7,7 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from '@/redux/store';
 import routes from '@/router/routes';
-import pathToRegexp from 'path-to-regexp';
+// import pathToRegexp from 'path-to-regexp';
 import 'src/styles/index.scss';
 import { IRouteMap, IRoutes } from '@/types/index';
 import { getToken, getStore } from '@/utils/auth';
@@ -48,9 +48,6 @@ async function beforeRender() {
   // TODO: for future login
   let isLogin = true;
   let userInfo = null;
-  if (pathToRegexp(location.pathname).test('/login/')) {
-    return;
-  }
 
   if (getToken() && getStore('userInfo')) {
     isLogin = true;
@@ -70,7 +67,6 @@ async function beforeRender() {
     {}
   );
   const extractFilterRoutes = extractRouteMap.filter;
-  // 可跳转的路由映射
   const realRouteMap = extractFilterRoutes.reduce(
     (obj: IRouteMap, item: IRoutes): IRouteMap => {
       const key = item.path;

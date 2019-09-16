@@ -50,27 +50,28 @@ service.interceptors.response.use(
       if (status === 50008 || status === 50012 || status === 50014) {
         // antd confirm
         return confirm({
-          title: '确定登出？',
-          content: '你已被登出，请点击确认重新登录',
-          okText: '确认',
-          cancelText: '取消',
+          title: 'Logout？',
+          content:
+            'You have been logged out, please click to confirm login again',
+          okText: 'Confirm',
+          cancelText: 'Cancel',
           onOk() {
             removeToken();
             window.location.reload();
           },
           onCancel() {
-            console.log('取消');
+            console.log('Cancel');
           }
         });
       }
       const errortext = codeMessage[status] || statusText;
       notification.error({
-        message: `请求错误 ${status}`,
+        message: `Request error ${status}`,
         description: errortext
       });
       return Promise.reject(response);
     } else {
-      if (data && data.code === 0) {
+      if (data && data.code === 200) {
         return Promise.resolve(response);
       } else {
         message.error(data.message);

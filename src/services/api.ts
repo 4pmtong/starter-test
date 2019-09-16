@@ -7,7 +7,7 @@ interface ILogin {
 }
 
 export async function getUserInfo(islogin: boolean) {
-  return http.post('/api/getUserInfo', islogin);
+  return http.post('/api/common/get_user_info', islogin);
 }
 
 export async function login(params: ILogin) {
